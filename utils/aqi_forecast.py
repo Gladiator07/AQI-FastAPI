@@ -13,7 +13,7 @@ print(datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'))
 
 def lat_lng(city):
 
-    geolocator = Nominatim(user_agent="my-application")
+    geolocator = Nominatim(user_agent="aqilocator")
     location = geolocator.geocode(city, addressdetails=True)
     latitude, longitude = location.latitude, location.longitude
 

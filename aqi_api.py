@@ -1,7 +1,7 @@
 import pickle
-import uvicorn
 
 import numpy as np
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 

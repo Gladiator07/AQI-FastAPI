@@ -1,6 +1,3 @@
-import pickle
-
-import numpy as np
 import requests
 import streamlit as st
 
@@ -56,7 +53,7 @@ if __name__ == "__main__":
             
             st.sidebar.subheader("Select the date to get the forecast (for next 5 days)")
             option = st.sidebar.selectbox("Pick a date", (today_disp, first_day, second_day, third_day, fourth_day))
-            
+
             air_content_to_show = st.sidebar.multiselect("Select the air contents", ("co","no","no2","o3","so2","pm2_5","pm10","nh3"))
 
             button = st.sidebar.button("Submit")

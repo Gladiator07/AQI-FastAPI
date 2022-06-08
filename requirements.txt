@@ -6,5 +6,6 @@ plotly==5.8.0
 pydantic==1.8.2
 requests==2.27.1
 streamlit
+uvicorn==0.17.6
+scikit-learn
 gunicorn
-uvicorn

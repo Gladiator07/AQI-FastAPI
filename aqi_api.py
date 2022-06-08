@@ -9,13 +9,14 @@ from utils.aqi_forecast import fetch_future_air_data
 from utils.utils_data import air_content_mean
 
 app = FastAPI()
+loaded_model = pickle.load(open("models/aqi_rf.pkl", 'rb'))
 
 class AQIDtypes(BaseModel):
     city: str
 
 @app.get("/")
 def home():
-    return {"Hello": "World"}
+    return {"Welcome to AQI API": "Head on to /predict endpoint or /docs for Swagger UI"}
 
 @app.post("/predict")
 async def predict_aqi(city: AQIDtypes = None):
@@ -29,6 +30,5 @@ async def predict_aqi(city: AQIDtypes = None):
     }
 
 if __name__ == '__main__':
-    loaded_model = pickle.load(open("models/aqi_rf.pkl", 'rb'))
 
     uvicorn.run(app, host='127.0.0.1', port=4000, debug=True)

@@ -25,7 +25,7 @@ class AIRDtypes(BaseModel):
 
 @app.get("/")
 def home():
-    return {"Welcome to AQI API": "Head on to /predict endpoint or /docs for Swagger UI"}
+    return {"Welcome to AQI API": "Head on to /predict-from-city OR /predict-from-air-contents endpoint or /docs for Swagger UI"}
 
 @app.post("/predict-from-city")
 async def predict_aqi(city: AQIDtypes = None):

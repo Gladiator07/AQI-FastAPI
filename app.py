@@ -54,11 +54,9 @@ if __name__ == "__main__":
             pre_fourth_day = (today - timedelta(days=4)).strftime("%d-%m-%Y")
             pre_fifth_day = (today - timedelta(days=5)).strftime("%d-%m-%Y")
             
-            st.sidebar.subheader("Select the date to get the data (for previous 4 days)")
-            option = st.sidebar.selectbox("Pick a date", (pre_first_day, pre_second_day, pre_third_day, pre_fourth_day))
             st.sidebar.subheader("Select the date to get the forecast (for next 5 days)")
             option = st.sidebar.selectbox("Pick a date", (today_disp, first_day, second_day, third_day, fourth_day))
-            # st.sid
+            
             air_content_to_show = st.sidebar.multiselect("Select the air contents", ("co","no","no2","o3","so2","pm2_5","pm10","nh3"))
 
             button = st.sidebar.button("Submit")
@@ -76,8 +74,9 @@ if __name__ == "__main__":
                     
                 elif option == first_day:
 
-                    pm2_5,pm10,no,no2,nh3,co,so2,o3 = air_content_mean(data_first)
-                    predicted_aqi = fetch_aqi_from_air_contents(pm2_5,pm10,no,no2,nh3,co,so2,o3)
+                    air_content = air_content_mean(data_today)
+                    air_content = list(air_content.values())
+                    predicted_aqi = fetch_aqi_from_air_contents(*air_content)
                     st.subheader(f"The forecasted AQI for tomorrow {first_day} is: **{predicted_aqi:.2f}**")
                     st.write("")
                     compare_aqi(predicted_aqi)
@@ -86,8 +85,9 @@ if __name__ == "__main__":
 
                 elif option == second_day:
 
-                    pm2_5,pm10,no,no2,nh3,co,so2,o3 = air_content_mean(data_second)
-                    predicted_aqi = fetch_aqi_from_air_contents(pm2_5,pm10,no,no2,nh3,co,so2,o3)
+                    air_content = air_content_mean(data_today)
+                    air_content = list(air_content.values())
+                    predicted_aqi = fetch_aqi_from_air_contents(*air_content)
                     st.subheader(f"The forecasted AQI for {second_day} is: **{predicted_aqi:.2f}**")
                     st.write("")
                     compare_aqi(predicted_aqi)
@@ -95,8 +95,9 @@ if __name__ == "__main__":
 
                 elif option == third_day:
 
-                    pm2_5,pm10,no,no2,nh3,co,so2,o3 = air_content_mean(data_third)
-                    predicted_aqi = fetch_aqi_from_air_contents(pm2_5,pm10,no,no2,nh3,co,so2,o3)
+                    air_content = air_content_mean(data_today)
+                    air_content = list(air_content.values())
+                    predicted_aqi = fetch_aqi_from_air_contents(*air_content)
                     st.subheader(f"The forecasted AQI for {third_day} is: **{predicted_aqi:.2f}**")
                     st.write("")
                     compare_aqi(predicted_aqi)
@@ -104,8 +105,9 @@ if __name__ == "__main__":
 
                 elif option == fourth_day:
 
-                    pm2_5,pm10,no,no2,nh3,co,so2,o3 = air_content_mean(data_fourth)
-                    predicted_aqi = fetch_aqi_from_air_contents(pm2_5,pm10,no,no2,nh3,co,so2,o3)
+                    air_content = air_content_mean(data_today)
+                    air_content = list(air_content.values())
+                    predicted_aqi = fetch_aqi_from_air_contents(*air_content)
                     st.subheader(f"The forecasted AQI for {fourth_day} is: **{predicted_aqi:.2f}**")
                     st.write("")
                     compare_aqi(predicted_aqi)
@@ -113,8 +115,9 @@ if __name__ == "__main__":
             
                 elif option == pre_first_day:
 
-                    pm2_5,pm10,no,no2,nh3,co,so2,o3 = air_content_mean(pre_data_first)
-                    predicted_aqi = fetch_aqi_from_air_contents(pm2_5,pm10,no,no2,nh3,co,so2,o3)
+                    air_content = air_content_mean(data_today)
+                    air_content = list(air_content.values())
+                    predicted_aqi = fetch_aqi_from_air_contents(*air_content)
                     st.subheader(f"The forecasted AQI for {pre_first_day} is: **{predicted_aqi:.2f}**")
                     st.write("")
                     compare_aqi(predicted_aqi)
@@ -123,8 +126,9 @@ if __name__ == "__main__":
 
                 elif option == pre_second_day:
 
-                    pm2_5,pm10,no,no2,nh3,co,so2,o3 = air_content_mean(pre_data_second)
-                    predicted_aqi = fetch_aqi_from_air_contents(pm2_5,pm10,no,no2,nh3,co,so2,o3)
+                    air_content = air_content_mean(data_today)
+                    air_content = list(air_content.values())
+                    predicted_aqi = fetch_aqi_from_air_contents(*air_content)
                     st.subheader(f"The forecasted AQI for {pre_second_day} is: **{predicted_aqi:.2f}**")
                     st.write("")
                     compare_aqi(predicted_aqi)
@@ -132,8 +136,9 @@ if __name__ == "__main__":
 
                 elif option == pre_third_day:
 
-                    pm2_5,pm10,no,no2,nh3,co,so2,o3 = air_content_mean(pre_data_third)
-                    predicted_aqi = fetch_aqi_from_air_contents(pm2_5,pm10,no,no2,nh3,co,so2,o3)
+                    air_content = air_content_mean(data_today)
+                    air_content = list(air_content.values())
+                    predicted_aqi = fetch_aqi_from_air_contents(*air_content)
                     st.subheader(f"The forecasted AQI for {pre_third_day} is: **{predicted_aqi:.2f}**")
                     st.write("")
                     compare_aqi(predicted_aqi)
@@ -141,8 +146,9 @@ if __name__ == "__main__":
 
                 elif option == pre_fourth_day:
 
-                    pm2_5,pm10,no,no2,nh3,co,so2,o3 = air_content_mean(pre_data_fourth)
-                    predicted_aqi = fetch_aqi_from_air_contents(pm2_5,pm10,no,no2,nh3,co,so2,o3)
+                    air_content = air_content_mean(data_today)
+                    air_content = list(air_content.values())
+                    predicted_aqi = fetch_aqi_from_air_contents(*air_content)
                     st.subheader(f"The forecasted AQI for {pre_fourth_day} is: **{predicted_aqi:.2f}**")
                     st.write("")
                     compare_aqi(predicted_aqi)

@@ -1,15 +1,17 @@
 import streamlit as st
 import plotly.express as px
 
+latex_format_unit = r"($\mu$g / m$^3$)"
+
 def plot_air_data(data,air_contents):
     """
     Plots air content wrt time
     """
-    st.info("💡 All the air contents are in micro-gram per meter-cube")
+    st.info("💡 All the air contents are in micro-gram per meter-cube reported hourly in 24hrs format")
     # for air_content in [air_contents]:
     for air_content in air_contents:
         
-        st.subheader(f"{air_content} (µg / m^3) vs time")
+        st.subheader(f"{air_content} {latex_format_unit}")
         fig = px.line(x=data["time"],y=data[air_content])
         fig.update_layout(
             xaxis_title = "time (24-hour)",

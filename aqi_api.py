@@ -1,4 +1,5 @@
 import pickle
+import uvicorn
 
 import numpy as np
 from fastapi import FastAPI
@@ -28,3 +29,7 @@ async def predict_aqi(city: AQIDtypes = None):
         "AQI": predicted_aqi,
         **data_dict
     }
+
+if __name__ == '__main__':
+
+    uvicorn.run(app, host='127.0.0.1', port=4000, debug=True)

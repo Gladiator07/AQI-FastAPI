@@ -76,11 +76,6 @@ def fetch_future_air_data(city):
         pre_data_third = df[df['date'] == pre_third_day].reset_index(drop=True)
         pre_data_fourth = df[df['date'] ==pre_fourth_day].reset_index(drop=True)
         pre_data_fifth = df[df['date'] == pre_fifth_day].reset_index(drop=True)
-        
-        print(data_today)
-        print(data_first)
-        print(data_second)
-        print(data_third)
 
         return data_today, data_first, data_second, data_third, data_fourth, data_fifth, pre_data_first,pre_data_second,pre_data_third, pre_data_fourth, pre_data_fifth
     else:

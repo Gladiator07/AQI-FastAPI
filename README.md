@@ -1,2 +1,1 @@
 # AQI-FastAPI
-# AQI-FastAPI

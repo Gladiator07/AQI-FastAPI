@@ -12,16 +12,20 @@ def fetch_aqi(city: str):
     url = "https://aqi-fastapi.herokuapp.com/predict-from-city"
     query = {"city": city}
     response = requests.post(url=url, json=query).json()
-    print(response)
-    aqi = response.pop('AQI')
+    if response is not None:
+        aqi = response['AQI']
+    else:
+        aqi = None
     return aqi
 
 def fetch_aqi_from_air_contents(pm2_5,pm10,no,no2,nh3,co,so2,o3):
     url = "https://aqi-fastapi.herokuapp.com/predict-from-air-contents"
     query = {"pm2_5":pm2_5,"pm10":pm10,"no":no,"no2":no2,"nh3":nh3,"co":co,"so2":so2,"o3":o3}
     response = requests.post(url=url, json=query).json()
-    print(response)
-    aqi = response.pop("AQI")
+    if response is not None:
+        aqi = response['AQI']
+    else:
+        aqi = None
     return aqi
     
 if __name__ == "__main__":
